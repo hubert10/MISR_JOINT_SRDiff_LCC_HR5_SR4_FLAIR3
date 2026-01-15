@@ -46,7 +46,6 @@ class SITSSegmenter(nn.Module):
         self.nbts = nbts
         self.d_model = d_model
         self.pool_scales = pool_scales
-        self.pool_scales = pool_scales
         self.spa_temp_att = spa_temp_att
         self.conv_spa_att = conv_spa_att
         self.decoder_channels = decoder_channels

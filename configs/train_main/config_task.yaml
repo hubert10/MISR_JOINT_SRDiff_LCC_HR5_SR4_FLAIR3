@@ -9,7 +9,7 @@ paths :
     test_csv: /my_data/FLAIR_HUB/ALL_CSV/FLAIR_HUB_TEST.csv
     global_mtd_folder: /my_data/FLAIR_HUB/GLOBAL_ALL_MTD/
     ckpt_model_path: 
-    cond_net_ckpt: "/my_data/pretrain_weights/LCC_SITS_MaxViT_UPerNet/checkpoints/last.ckpt"
+    cond_net_ckpt: "/my_data/pretrain_weights/LCC_SITS_MaxViT_UPerNet_10/checkpoints/last.ckpt"
 
 tasks: 
     train: True
