@@ -76,7 +76,6 @@ class SRDiffTrainer(Trainer):
             cond_net.load_state_dict(model_dict)
             print(f"| load 'model' from '{weights_path}'.")
 
-
         gaussian = GaussianDiffusion(
             denoise_fn=denoise_fn,
             cond_net=cond_net,
@@ -84,19 +83,19 @@ class SRDiffTrainer(Trainer):
             loss_type=hparams["loss_type"],
         )
 
-        self.model = SITSAerialSegmenter(gaussian=gaussian, config=hparams)
-        # what is used for?
-        self.global_step = 0
-
-        if hparams["infer"]:
-            if hparams["diff_net_ckpt"] != "" and os.path.exists(
-                hparams["diff_net_ckpt"]
-            ):
-                load_ckpt(self.model, hparams["diff_net_ckpt"])
-
-        # what is used for?
-        self.global_step = 0
-        return self.model
+        if not hparams["infer"]:
+            self.model = SITSAerialSegmenter(gaussian=gaussian, config=hparams)
+            self.global_step = 0
+            return self.model
+        else:
+            if hparams["infer"]:
+                if hparams["diff_net_ckpt"] != "" and os.path.exists(
+                    hparams["diff_net_ckpt"]
+                ):
+                    load_ckpt(self.model, hparams["diff_net_ckpt"])
+            # what is used for?
+            self.global_step = 0
+            return self.model
 
 
     def training_step(self, batch):

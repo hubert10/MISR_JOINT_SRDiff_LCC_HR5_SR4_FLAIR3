@@ -124,12 +124,8 @@ def set_hparams(
         return combined_config
 
     saved_hparams = {}
-    print("777777777777777777777777777777777:", args.config_file)
     hparams.update(load_config(args.config_file))
     args_work_dir = hparams["paths"]["out_folder"]
-    print(hparams["paths"])
-    print(args_work_dir)
-
     if args.exp_name != "":
         args_work_dir = str(args_work_dir) + f"checkpoints/{args.exp_name}"
         ckpt_config_path = f"{args_work_dir}/config.yaml"
@@ -147,8 +143,6 @@ def set_hparams(
     if not args.reset:
         hparams_.update(saved_hparams)
     hparams_["work_dir"] = args_work_dir
-
-    print("hparams_['work_dor']:", hparams_["work_dir"])
 
     # Support config overriding in command line. Support list type config overriding.
     # Examples: --hparams="a=1,b.c=2,d=[1 1 1]"

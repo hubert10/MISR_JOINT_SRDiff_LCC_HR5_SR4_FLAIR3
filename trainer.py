@@ -548,7 +548,7 @@ if __name__ == "__main__":
 
 # python trainer.py --config_file=./configs/train_cond/ --exp_name misr/highresnet_ltae_ckpt --hparams="cond_net_ckpt=./results/checkpoints/misr/highresnet_ltae_ckpt" --reset
 
-# python trainer.py --config_file=./configs/train_main/ --exp_name misr/srdiff_highresnet_ltae_ckpt --hparams="cond_net_ckpt=./results/checkpoints/misr/highresnet_ltae_ckpt" --reset
+# python trainer.py --config_file=./configs/train/ --exp_name misr/srdiff_maxvit_ltae_ckpt --reset
 
 # python trainer.py --config_file=./configs/train_main/ --exp_name misr/srdiff_highresnet_ltae_ckpt --hparams="cond_net_ckpt=./results/checkpoints/misr/srdiff_highresnet_ltae_ckpt" --infer
 
