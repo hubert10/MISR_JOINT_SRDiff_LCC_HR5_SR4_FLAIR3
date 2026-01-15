@@ -92,7 +92,7 @@ class SRDiffTrainer(Trainer):
                 hparams["diff_net_ckpt"]
             ):
                 load_ckpt(self.model, hparams["diff_net_ckpt"])
-        return self.model
+            return self.model
 
 
     def training_step(self, batch):
