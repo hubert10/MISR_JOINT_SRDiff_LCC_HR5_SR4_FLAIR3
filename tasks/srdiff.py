@@ -83,19 +83,16 @@ class SRDiffTrainer(Trainer):
             loss_type=hparams["loss_type"],
         )
 
+        self.model = SITSAerialSegmenter(gaussian=gaussian, config=hparams)
+        self.global_step = 0
         if not hparams["infer"]:
-            self.model = SITSAerialSegmenter(gaussian=gaussian, config=hparams)
-            self.global_step = 0
             return self.model
         else:
-            if hparams["infer"]:
-                if hparams["diff_net_ckpt"] != "" and os.path.exists(
-                    hparams["diff_net_ckpt"]
-                ):
-                    load_ckpt(self.model, hparams["diff_net_ckpt"])
-            # what is used for?
-            self.global_step = 0
-            return self.model
+            if hparams["diff_net_ckpt"] != "" and os.path.exists(
+                hparams["diff_net_ckpt"]
+            ):
+                load_ckpt(self.model, hparams["diff_net_ckpt"])
+        return self.model
 
 
     def training_step(self, batch):
