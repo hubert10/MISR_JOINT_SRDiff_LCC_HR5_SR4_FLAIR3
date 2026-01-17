@@ -39,6 +39,9 @@ class UPerHead(nn.Module, metaclass=ABCMeta):
         self.channels = channels
         self.align_corners = align_corners
         self.pool_scales = pool_scales
+        print("---------------------------------------------:", in_channels[-1])
+        print("---------------------------------------------:", self.channels)
+
         self.psp_modules = PPM(
             self.pool_scales,
             self.in_channels[-1],

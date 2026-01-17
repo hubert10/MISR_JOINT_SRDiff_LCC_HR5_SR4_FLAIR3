@@ -116,8 +116,6 @@ class SITSSegmenter(nn.Module):
         # )
         sits_logit, multi_lvls_cls = self.decoder_head(red_temp_feats)
 
-        print("sits_logit:", sits_logit.shape)
-
         print("enc_features:", enc_temp_feats[0].shape)
         print("enc_features:", enc_temp_feats[1].shape)
         print("enc_features:", enc_temp_feats[2].shape)
