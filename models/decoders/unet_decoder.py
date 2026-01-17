@@ -631,10 +631,10 @@ class UNetDecoder(nn.Module):
         multi_lvls_cls = [
             self.segmentation_head(feature) for feature in upsampled_features
         ]
-        # print("x: ------------------------", x.shape)
+        print("x: ------------------------", x.shape)
         # x = F.interpolate(x, size=(h, w), mode="bilinear", align_corners=False) # torch.Size([4, 64, 256, 256])
         out = self.segmentation_head(x)  # torch.Size([4, 64, 64, 64])
-        # print("out: ------------------------", out.shape)
+        print("out: ------------------------", out.shape)
         return out, multi_lvls_cls, enc_features
 
     def init_weight(self):
