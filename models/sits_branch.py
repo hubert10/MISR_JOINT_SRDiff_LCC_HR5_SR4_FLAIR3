@@ -85,8 +85,6 @@ class SITSSegmenter(nn.Module):
         # )
         # define decoder network
 
-        print("self.backbone_dims:", self.backbone_dims)
-
         self.decoder_head = UPerHead(
             self.backbone_dims,
             uper_head_dim,  # 512
@@ -101,10 +99,10 @@ class SITSSegmenter(nn.Module):
         h, w = x.size()[-2:]
         red_temp_feats, enc_temp_feats = self.sits_encoder(x, batch_positions)
         
-        print("red_temp_feats 0:", red_temp_feats[0].shape)
-        print("red_temp_feats 1:", red_temp_feats[1].shape)
-        print("red_temp_feats 2:", red_temp_feats[2].shape)
-        print("red_temp_feats 3:", red_temp_feats[3].shape)
+        # print("red_temp_feats 0:", red_temp_feats[0].shape)
+        # print("red_temp_feats 1:", red_temp_feats[1].shape)
+        # print("red_temp_feats 2:", red_temp_feats[2].shape)
+        # print("red_temp_feats 3:", red_temp_feats[3].shape)
 
         # red_temp_feats 0: torch.Size([2, 64, 64, 64])
         # red_temp_feats 1: torch.Size([2, 128, 32, 32])
@@ -116,10 +114,10 @@ class SITSSegmenter(nn.Module):
         # )
         sits_logit, multi_lvls_cls = self.decoder_head(red_temp_feats)
 
-        print("enc_features:", enc_temp_feats[0].shape)
-        print("enc_features:", enc_temp_feats[1].shape)
-        print("enc_features:", enc_temp_feats[2].shape)
-        print("enc_features:", enc_temp_feats[3].shape)
+        # print("enc_features:", enc_temp_feats[0].shape)
+        # print("enc_features:", enc_temp_feats[1].shape)
+        # print("enc_features:", enc_temp_feats[2].shape)
+        # print("enc_features:", enc_temp_feats[3].shape)
 
         # enc_temp_feats: torch.Size([2, 12, 64, 64, 64])
         # enc_temp_feats: torch.Size([2, 12, 128, 32, 32])
