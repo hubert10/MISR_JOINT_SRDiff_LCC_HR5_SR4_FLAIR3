@@ -39,8 +39,8 @@ class UPerHead(nn.Module, metaclass=ABCMeta):
         self.channels = channels
         self.align_corners = align_corners
         self.pool_scales = pool_scales
-        print("---------------------------------------------:", in_channels[-1])
-        print("---------------------------------------------:", self.channels)
+        # print("---------------------------------------------:", in_channels[-1])
+        # print("---------------------------------------------:", self.channels)
 
         self.psp_modules = PPM(
             self.pool_scales,
@@ -106,10 +106,10 @@ class UPerHead(nn.Module, metaclass=ABCMeta):
             lateral_conv(inputs[i]) for i, lateral_conv in enumerate(self.lateral_convs)
         ]
 
-        print("inputs 0:", inputs[0].shape)
-        print("inputs 1:", inputs[1].shape)
-        print("inputs 2:", inputs[2].shape)
-        print("inputs 3:", inputs[3].shape)
+        # print("inputs 0:", inputs[0].shape)
+        # print("inputs 1:", inputs[1].shape)
+        # print("inputs 2:", inputs[2].shape)
+        # print("inputs 3:", inputs[3].shape)
 
         laterals.append(self.psp_forward(inputs))
 
@@ -161,10 +161,10 @@ class UPerHead(nn.Module, metaclass=ABCMeta):
 
         multi_levels_feature_maps = fpn_outs.copy()
 
-        print("multi_levels_feature_maps 0:", multi_levels_feature_maps[0].shape)
-        print("multi_levels_feature_maps 1:", multi_levels_feature_maps[1].shape)
-        print("multi_levels_feature_maps 2:", multi_levels_feature_maps[2].shape)
-        print("multi_levels_feature_maps 3:", multi_levels_feature_maps[3].shape)
+        # print("multi_levels_feature_maps 0:", multi_levels_feature_maps[0].shape)
+        # print("multi_levels_feature_maps 1:", multi_levels_feature_maps[1].shape)
+        # print("multi_levels_feature_maps 2:", multi_levels_feature_maps[2].shape)
+        # print("multi_levels_feature_maps 3:", multi_levels_feature_maps[3].shape)
 
         # CONCAT the multi_levels_feats_out using a conv layer: 2D + BN + Relu
         fpn_outs = torch.cat(fpn_outs, dim=1)
@@ -187,9 +187,9 @@ class UPerHead(nn.Module, metaclass=ABCMeta):
         # print("cls_sits_ft_map:", cls_sits_ft_map.shape)
 
 
-        print("multi_lvls_cls 1:", multi_lvls_cls[1].shape)
-        print("multi_lvls_cls 2:", multi_lvls_cls[2].shape)
-        print("multi_lvls_cls 3:", multi_lvls_cls[3].shape)
+        # print("multi_lvls_cls 1:", multi_lvls_cls[1].shape)
+        # print("multi_lvls_cls 2:", multi_lvls_cls[2].shape)
+        # print("multi_lvls_cls 3:", multi_lvls_cls[3].shape)
 
 
         # cls_sits_ft_map: torch.Size([2, 19, 64, 64])
