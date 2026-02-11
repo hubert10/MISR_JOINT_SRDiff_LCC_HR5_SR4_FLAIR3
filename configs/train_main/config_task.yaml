@@ -36,7 +36,7 @@ inputs:
 
 hyperparams:
     num_epochs: 150
-    batch_size: 30
+    batch_size: 10
     seed: 2025
     learning_rate: 0.00005
 
